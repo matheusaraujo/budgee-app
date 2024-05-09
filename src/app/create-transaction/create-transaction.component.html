@@ -1,4 +1,14 @@
-<form [formGroup]="transactionsForm" (ngSubmit)="onSubmit()">
-    <input id="inputData" type="text" formControlName="inputData" />
-    <button class="button" type="submit">Submit</button>
+<form
+    [formGroup]="transactionsForm"
+    (ngSubmit)="onSubmit()"
+    class="example-form"
+>
+    <mat-form-field class="example-full-width">
+        <mat-label>Transaction</mat-label>
+        <input
+            matInput
+            placeholder="#category description @2024-08-05 123.45"
+            formControlName="inputData"
+        />
+    </mat-form-field>
 </form>

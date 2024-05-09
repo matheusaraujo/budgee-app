@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { TransactionsService } from "../transactions.service";
 import { CommonModule } from "@angular/common";
+import { MatTableModule } from "@angular/material/table";
 
 type Category = {
   category: string;
@@ -10,13 +11,14 @@ type Category = {
 @Component({
   selector: "app-list-categories",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTableModule],
   providers: [TransactionsService],
   templateUrl: "./list-categories.component.html",
   styleUrl: "./list-categories.component.scss",
 })
 export class ListCategoriesComponent {
   categories: Category[] = [];
+  displayedColumns: string[] = ["category", "amount"];
 
   constructor(private service: TransactionsService) {}
 
