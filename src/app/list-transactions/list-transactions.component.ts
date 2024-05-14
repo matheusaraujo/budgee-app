@@ -1,29 +1,21 @@
+import { Component, OnInit } from "@angular/core";
+import { TableModule } from "primeng/table";
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
 import { TransactionsService } from "../transactions.service";
-import { MatTableModule } from "@angular/material/table";
-
-type Transaction = {
-  category: string;
-  description: string;
-  date: Date;
-  amount: number;
-};
 
 @Component({
   selector: "app-list-transactions",
   standalone: true,
-  imports: [CommonModule, MatTableModule],
+  imports: [TableModule, CommonModule],
   templateUrl: "./list-transactions.component.html",
   styleUrl: "./list-transactions.component.scss",
 })
-export class ListTransactionsComponent {
-  transactions: Transaction[] = [];
-  displayedColumns: string[] = ["category", "date", "description", "amount"];
+export class ListTransactionsComponent implements OnInit {
+  transactions!: any[];
 
   constructor(private service: TransactionsService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.service.getTransactions().subscribe((response) => {
       this.transactions = response as [];
     });

@@ -1,14 +1,13 @@
-<form
-    [formGroup]="transactionsForm"
-    (ngSubmit)="onSubmit()"
-    class="example-form"
->
-    <mat-form-field class="example-full-width">
-        <mat-label>Transaction</mat-label>
-        <input
-            matInput
-            placeholder="#category description @2024-08-05 123.45"
-            formControlName="inputData"
-        />
-    </mat-form-field>
-</form>
+<div class="card flex justify-content-center">
+    <div class="flex flex-column">
+        <p-floatLabel>
+            <input pInputText id="transaction" [(ngModel)]="value" pInputText />
+            <label for="transaction">transaction</label>
+        </p-floatLabel>
+        <small id="transaction-help">
+            #category description &#64;date 123.45
+        </small>
+    </div>
+
+    <p-button label="Save" (click)="onSubmit()" />
+</div>

@@ -1,34 +1,24 @@
-import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { FormBuilder, ReactiveFormsModule } from "@angular/forms";
+import { InputTextModule } from "primeng/inputtext";
+import { FormsModule } from "@angular/forms";
+import { FloatLabelModule } from "primeng/floatlabel";
 import { TransactionsService } from "../transactions.service";
-import { MatInputModule } from "@angular/material/input";
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-create-transaction",
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  providers: [TransactionsService],
+  imports: [FormsModule, InputTextModule, FloatLabelModule, ButtonModule],
   templateUrl: "./create-transaction.component.html",
   styleUrl: "./create-transaction.component.scss",
 })
 export class CreateTransactionComponent {
-  transactionsForm = this.formBuilder.group({ inputData: "" });
+  value: string | undefined;
 
-  constructor(
-    private service: TransactionsService,
-    private formBuilder: FormBuilder,
-  ) {}
+  constructor(private service: TransactionsService) {}
 
   onSubmit(): void {
-    this.service.createTransaction(this.transactionsForm.value.inputData);
-    this.transactionsForm.reset();
-    window.location.reload();
+    this.service.createTransaction(this.value);
+    window.location.reload(); // TODO: improve this!!!
   }
 }

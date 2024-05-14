@@ -1,11 +1,12 @@
 <h1>budgee</h1>
+
 <app-create-transaction> </app-create-transaction>
 
-<mat-tab-group>
-    <mat-tab label="Categories">
-        <app-list-categories> </app-list-categories>
-    </mat-tab>
-    <mat-tab label="All transactions">
-        <app-list-transactions> </app-list-transactions>
-    </mat-tab>
-</mat-tab-group>
+<p-tabView>
+    <p-tabPanel header="Category">
+        <app-list-categories></app-list-categories>
+    </p-tabPanel>
+    <p-tabPanel header="Transactions">
+        <app-list-transactions></app-list-transactions>
+    </p-tabPanel>
+</p-tabView>
