@@ -24,4 +24,8 @@ export class TransactionsService {
   getTransactionsByCategory() {
     return this.http.get(`${this.baseUrl}/transactions/by-category`);
   }
+
+  getTransactionsByDate() {
+    return this.http.get(`${this.baseUrl}/transactions/by-date`);
+  }
 }

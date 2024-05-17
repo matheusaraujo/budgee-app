@@ -24,6 +24,7 @@ export class ListCategoriesComponent implements OnInit {
         labels: (response as []).map((r: any) => r.category),
         datasets: [
           {
+            label: "total",
             data: (response as []).map((r: any) => r.amount),
           },
         ],
