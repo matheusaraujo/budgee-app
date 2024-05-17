@@ -1,0 +1,8 @@
+tr > td {
+    border-width: 0;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-first,
+:host ::ng-deep .p-paginator .p-paginator-last {
+    display: none;
+}
