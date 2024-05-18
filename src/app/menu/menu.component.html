@@ -1,7 +1,22 @@
 <div class="menu">
     <div class="p-buttonset">
-        <p-button label="Month" icon="pi pi-calendar" disabled="true" />
-        <p-button label="Year" icon="pi pi-calendar-plus" />
-        <p-button label="All times" icon="pi pi-list" />
+        <p-button
+            label="Home"
+            icon="pi pi-home"
+            (click)="navigate('/')"
+            [disabled]="url === '/'"
+        />
+        <p-button
+            label="Month"
+            icon="pi pi-calendar"
+            (click)="navigate('/month')"
+            [disabled]="url === '/month'"
+        />
+        <p-button
+            label="Year"
+            icon="pi pi-calendar-plus"
+            (click)="navigate('/year')"
+            [disabled]="url === '/year'"
+        />
     </div>
 </div>
