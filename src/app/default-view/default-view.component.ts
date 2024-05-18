@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { ViewBalanceComponent } from "../view-balance/view-balance.component";
 
 @Component({
-  selector: 'app-default-view',
+  selector: "app-default-view",
   standalone: true,
-  imports: [],
-  templateUrl: './default-view.component.html',
-  styleUrl: './default-view.component.scss'
+  imports: [ViewBalanceComponent],
+  templateUrl: "./default-view.component.html",
+  styleUrl: "./default-view.component.scss",
 })
-export class DefaultViewComponent {
-
-}
+export class DefaultViewComponent {}

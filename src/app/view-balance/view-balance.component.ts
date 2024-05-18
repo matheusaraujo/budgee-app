@@ -11,7 +11,7 @@ import { TransactionsService } from "../transactions.service";
   styleUrl: "./view-balance.component.scss",
 })
 export class ViewBalanceComponent implements OnInit {
-  showBalance: boolean = false;
+  showBalance: boolean = true;
   buttonIcon: string = "pi pi-eye toggle-button";
   data!: any;
 
@@ -19,6 +19,7 @@ export class ViewBalanceComponent implements OnInit {
 
   ngOnInit() {
     this.service.getBalance().subscribe((response) => {
+      console.log(response);
       this.data = response;
     });
   }

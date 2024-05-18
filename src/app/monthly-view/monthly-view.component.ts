@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { ViewBalanceComponent } from "../view-balance/view-balance.component";
 
 @Component({
-  selector: 'app-monthly-view',
+  selector: "app-monthly-view",
   standalone: true,
-  imports: [],
-  templateUrl: './monthly-view.component.html',
-  styleUrl: './monthly-view.component.scss'
+  imports: [ViewBalanceComponent],
+  templateUrl: "./monthly-view.component.html",
+  styleUrl: "./monthly-view.component.scss",
 })
-export class MonthlyViewComponent {
-
-}
+export class MonthlyViewComponent {}

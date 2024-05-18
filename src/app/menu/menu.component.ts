@@ -5,6 +5,7 @@ import { ButtonModule } from "primeng/button";
 import { CardModule } from "primeng/card";
 import { DropdownModule } from "primeng/dropdown";
 import { filter } from "rxjs/operators";
+import { TransactionsService } from "../transactions.service";
 
 interface Year {
   name: string;
@@ -30,7 +31,10 @@ export class MenuComponent implements OnInit {
   months: Month[] | undefined;
   selectedMonth: Month | undefined;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private service: TransactionsService,
+  ) {}
 
   ngOnInit(): void {
     this.years = [
@@ -62,16 +66,38 @@ export class MenuComponent implements OnInit {
   }
 
   onYearChange() {
-    this.selectedMonth = undefined;
-    if (this.selectedYear) {
-      this.router.navigate([`/${this.selectedYear.code}`]);
-    } else {
-      this.selectedYear = undefined;
-      this.router.navigate([`/`]);
-    }
+    if (!this.selectedYear) this.selectedMonth = undefined;
+    this.navigate();
   }
 
   onMonthChange() {
+    this.navigate();
+  }
+
+  setSelectionsFromUrl() {
+    const segments = this.router.url.split("/").slice(1);
+    this.selectedYear = undefined;
+    this.selectedMonth = undefined;
+
+    if (segments.length > 0) {
+      const yearSegment = segments[0];
+      this.selectedYear = this.years?.find((year) => year.code === yearSegment);
+
+      if (segments.length > 1) {
+        const monthSegment = segments[1];
+        this.selectedMonth = this.months?.find(
+          (month) => month.code === monthSegment,
+        );
+      }
+    }
+
+    this.service.setYearMonth(
+      this.selectedYear?.code,
+      this.selectedMonth?.code,
+    );
+  }
+
+  navigate() {
     if (this.selectedYear && this.selectedMonth) {
       this.router.navigate([
         `/${this.selectedYear.code}/${this.selectedMonth.code}`,
@@ -80,20 +106,6 @@ export class MenuComponent implements OnInit {
       this.router.navigate([`/${this.selectedYear.code}`]);
     } else {
       this.router.navigate([`/`]);
-    }
-  }
-
-  setSelectionsFromUrl() {
-    const segments = this.router.url.split("/").slice(1);
-    if (segments.length > 0) {
-      const yearSegment = segments[0];
-      this.selectedYear = this.years?.find((year) => year.code === yearSegment);
-    }
-    if (segments.length > 1) {
-      const monthSegment = segments[1];
-      this.selectedMonth = this.months?.find(
-        (month) => month.code === monthSegment,
-      );
     }
   }
 }

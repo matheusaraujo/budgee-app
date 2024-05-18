@@ -1,16 +1,27 @@
-<p-card header="Balance">
+<p-card header="Balance" class="balance-card">
     <div class="balance-container">
-        <div class="balance" *ngIf="showBalance">
-            {{ data.balance | currency:'EUR' }}
+        <div class="balance">
+            <strong>Balance:</strong> {{ data?.balance | currency:'EUR' }}
+            <span class="date">({{ data?.referenceDate | date }})</span>
         </div>
-        <div class="balance" *ngIf="!showBalance">€ *,***.**</div>
 
-        <i
-            pButton
-            type="button"
-            [class]="buttonIcon"
-            label="Toggle Balance"
-            (click)="toggleBalance()"
-        ></i>
+        <div *ngIf="data?.previousBalance !== undefined" class="balance-item">
+            <strong>Previous balance:</strong>
+            <span class="date">({{ data?.initialReferenceDate | date }})</span>
+            {{ data?.previousBalance | currency:'EUR'}}
+        </div>
+        <div *ngIf="data?.income !== undefined" class="balance-item">
+            <strong>Incomes:</strong> {{ data?.income | currency:'EUR'}}
+        </div>
+        <div *ngIf="data?.expense !== undefined" class="balance-item">
+            <strong>Expenses:</strong> {{ data?.expense | currency:'EUR'}}
+        </div>
+        <div *ngIf="data?.savings !== undefined" class="balance-item">
+            <strong>Savings:</strong> {{ data?.savings | currency:'EUR'}}
+        </div>
+        <div *ngIf="data?.balanceInPeriod !== undefined" class="balance-item">
+            <strong>Balance in period:</strong> {{ data?.balanceInPeriod |
+            currency:'EUR'}}
+        </div>
     </div>
 </p-card>
