@@ -1,19 +1,16 @@
-<div class="card flex justify-content-center">
-    <div class="flex flex-column">
-        <p-floatLabel>
-            <input
-                pInputText
-                id="transaction"
-                [(ngModel)]="value"
-                pInputText
-                class="create-transaction-input"
-            />
-            <label for="transaction">transaction</label>
-        </p-floatLabel>
-        <small id="transaction-help">
-            #category description &#64;date 123.45
-        </small>
-    </div>
-
-    <p-button label="Save" (click)="onSubmit()" />
-</div>
+<p-card>
+    <p-floatLabel>
+        <input
+            pInputText
+            id="transaction"
+            [(ngModel)]="value"
+            pInputText
+            class="create-transaction-input"
+            (keydown.enter)="onSubmit()"
+        />
+        <label for="transaction">transaction</label>
+    </p-floatLabel>
+    <small id="transaction-help">
+        #category description &#64;date 123.45
+    </small>
+</p-card>

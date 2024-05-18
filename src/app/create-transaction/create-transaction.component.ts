@@ -1,14 +1,21 @@
 import { Component } from "@angular/core";
-import { InputTextModule } from "primeng/inputtext";
 import { FormsModule } from "@angular/forms";
-import { FloatLabelModule } from "primeng/floatlabel";
-import { TransactionsService } from "../transactions.service";
 import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { FloatLabelModule } from "primeng/floatlabel";
+import { InputTextModule } from "primeng/inputtext";
+import { TransactionsService } from "../transactions.service";
 
 @Component({
   selector: "app-create-transaction",
   standalone: true,
-  imports: [FormsModule, InputTextModule, FloatLabelModule, ButtonModule],
+  imports: [
+    FormsModule,
+    InputTextModule,
+    FloatLabelModule,
+    ButtonModule,
+    CardModule,
+  ],
   templateUrl: "./create-transaction.component.html",
   styleUrl: "./create-transaction.component.scss",
 })

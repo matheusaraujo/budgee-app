@@ -2,3 +2,7 @@ h1 {
     text-align: center;
     color: var(--primary-color);
 }
+
+:host ::ng-deep .card-views .p-card .p-card-body {
+    padding-top: 0;
+}

@@ -19,7 +19,6 @@ export class ViewBalanceComponent implements OnInit {
 
   ngOnInit() {
     this.service.getBalance().subscribe((response) => {
-      console.log(response);
       this.data = response;
     });
   }

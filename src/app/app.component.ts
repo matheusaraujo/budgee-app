@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+import { CardModule } from "primeng/card";
 import { TabViewModule } from "primeng/tabview";
 import { CreateTransactionComponent } from "./create-transaction/create-transaction.component";
 import { ListCategoriesComponent } from "./list-categories/list-categories.component";
-import { ListTransactionsComponent } from "./list-transactions/list-transactions.component";
 import { ListDatesComponent } from "./list-dates/list-dates.component";
+import { ListTransactionsComponent } from "./list-transactions/list-transactions.component";
 import { ViewBalanceComponent } from "./view-balance/view-balance.component";
 
 @Component({
@@ -12,6 +13,7 @@ import { ViewBalanceComponent } from "./view-balance/view-balance.component";
   standalone: true,
   imports: [
     RouterOutlet,
+    CardModule,
     TabViewModule,
     CreateTransactionComponent,
     ListCategoriesComponent,
