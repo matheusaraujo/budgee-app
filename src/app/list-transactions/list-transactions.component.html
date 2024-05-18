@@ -11,14 +11,20 @@
                         [rows]="item.transactions.length / 3"
                     >
                         <ng-template pTemplate="body" let-transaction>
-                            <tr>
-                                <td style="width: 25%">
+                            <tr style="display: flex; width: 100%">
+                                <td style="flex: 1 1 25%">
                                     {{ transaction.category }}
                                 </td>
-                                <td style="width: 50%">
+                                <td style="flex: 1 1 50%">
                                     {{ transaction.description }}
                                 </td>
-                                <td style="width: 25%">
+                                <td
+                                    style="flex: 1 1 25%"
+                                    [ngClass]="{
+                                        'p-income-amount': transaction.amount > 0,
+                                        'p-expense-amount': transaction.amount < 0
+                                    }"
+                                >
                                     {{ transaction.amount | currency:'EUR' }}
                                 </td>
                             </tr>
