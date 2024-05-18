@@ -1,0 +1,15 @@
+:host ::ng-deep .balance-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host ::ng-deep .balance {
+    font-size: 1.2em;
+}
+
+:host ::ng-deep .toggle-button {
+    margin-left: auto;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}

@@ -28,4 +28,8 @@ export class TransactionsService {
   getTransactionsByDate() {
     return this.http.get(`${this.baseUrl}/transactions/by-date`);
   }
+
+  getBalance() {
+    return this.http.get(`${this.baseUrl}/transactions/balance`);
+  }
 }

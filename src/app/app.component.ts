@@ -5,6 +5,7 @@ import { CreateTransactionComponent } from "./create-transaction/create-transact
 import { ListCategoriesComponent } from "./list-categories/list-categories.component";
 import { ListTransactionsComponent } from "./list-transactions/list-transactions.component";
 import { ListDatesComponent } from "./list-dates/list-dates.component";
+import { ViewBalanceComponent } from "./view-balance/view-balance.component";
 
 @Component({
   selector: "app-root",
@@ -16,6 +17,7 @@ import { ListDatesComponent } from "./list-dates/list-dates.component";
     ListCategoriesComponent,
     ListTransactionsComponent,
     ListDatesComponent,
+    ViewBalanceComponent,
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",

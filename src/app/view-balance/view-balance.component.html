@@ -1,0 +1,16 @@
+<p-card header="Balance">
+    <div class="balance-container">
+        <div class="balance" *ngIf="showBalance">
+            {{ data.balance | currency:'EUR' }}
+        </div>
+        <div class="balance" *ngIf="!showBalance">€ *,***.**</div>
+
+        <i
+            pButton
+            type="button"
+            [class]="buttonIcon"
+            label="Toggle Balance"
+            (click)="toggleBalance()"
+        ></i>
+    </div>
+</p-card>
