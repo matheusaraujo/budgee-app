@@ -1,22 +1,31 @@
-<div class="menu">
-    <div class="p-buttonset">
-        <p-button
-            label="Home"
-            icon="pi pi-home"
-            (click)="navigate('/')"
-            [disabled]="url === '/'"
-        />
-        <p-button
-            label="Month"
-            icon="pi pi-calendar"
-            (click)="navigate('/month')"
-            [disabled]="url === '/month'"
-        />
-        <p-button
-            label="Year"
-            icon="pi pi-calendar-plus"
-            (click)="navigate('/year')"
-            [disabled]="url === '/year'"
-        />
+<div class="menu-container">
+    <div class="menu">
+        <p-card>
+            <div class="dropdown-container">
+                <div class="dropdown-item">
+                    <p-dropdown
+                        [options]="years"
+                        [(ngModel)]="selectedYear"
+                        optionLabel="name"
+                        placeholder="Year"
+                        [showClear]="true"
+                        [checkmark]="true"
+                        (onChange)="onYearChange()"
+                    />
+                </div>
+                <div class="dropdown-item">
+                    <p-dropdown
+                        [options]="months"
+                        [(ngModel)]="selectedMonth"
+                        optionLabel="name"
+                        placeholder="Month"
+                        [showClear]="true"
+                        [checkmark]="true"
+                        [disabled]="selectedYear === undefined"
+                        (onChange)="onMonthChange()"
+                    />
+                </div>
+            </div>
+        </p-card>
     </div>
 </div>

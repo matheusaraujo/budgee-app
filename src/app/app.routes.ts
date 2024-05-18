@@ -5,6 +5,6 @@ import { YearlyViewComponent } from "./yearly-view/yearly-view.component";
 
 export const routes: Routes = [
   { path: "", component: DefaultViewComponent },
-  { path: "month", component: MonthlyViewComponent },
-  { path: "year", component: YearlyViewComponent },
+  { path: ":year/:month", component: MonthlyViewComponent },
+  { path: ":year", component: YearlyViewComponent },
 ];
