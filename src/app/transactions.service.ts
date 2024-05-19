@@ -32,9 +32,14 @@ export class TransactionsService {
   }
 
   getBalance() {
-    console.log("getBalance");
     return this.http.get(
       `${this.baseUrl}/transactions/balance${this.makeParams()}`,
+    );
+  }
+
+  getDetailedBalance() {
+    return this.http.get(
+      `${this.baseUrl}/transactions/detailed-balance${this.makeParams()}`,
     );
   }
 

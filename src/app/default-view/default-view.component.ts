@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { GetBalanceComponent } from "../get-balance/get-balance.component";
+import { GetBalanceComponent } from "@app/balance/get-balance/get-balance.component";
 
 @Component({
   selector: "app-default-view",

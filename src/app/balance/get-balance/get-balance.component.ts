@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { CardModule } from "primeng/card";
-import { TransactionsService } from "../transactions.service";
+import { TransactionsService } from "@app/transactions.service";
 
 @Component({
   selector: "app-get-balance",
@@ -11,7 +11,6 @@ import { TransactionsService } from "../transactions.service";
   styleUrl: "./get-balance.component.scss",
 })
 export class GetBalanceComponent implements OnInit {
-  buttonIcon: string = "pi pi-eye toggle-button";
   data!: any;
 
   constructor(private service: TransactionsService) {}
