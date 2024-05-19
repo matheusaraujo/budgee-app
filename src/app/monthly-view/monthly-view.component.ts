@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { ViewBalanceComponent } from "../view-balance/view-balance.component";
+import { GetBalanceComponent } from "../get-balance/get-balance.component";
 
 @Component({
   selector: "app-monthly-view",
   standalone: true,
-  imports: [ViewBalanceComponent],
+  imports: [GetBalanceComponent],
   templateUrl: "./monthly-view.component.html",
   styleUrl: "./monthly-view.component.scss",
 })

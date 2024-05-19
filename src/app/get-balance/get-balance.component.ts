@@ -4,14 +4,13 @@ import { CardModule } from "primeng/card";
 import { TransactionsService } from "../transactions.service";
 
 @Component({
-  selector: "app-view-balance",
+  selector: "app-get-balance",
   standalone: true,
   imports: [CommonModule, CardModule],
-  templateUrl: "./view-balance.component.html",
-  styleUrl: "./view-balance.component.scss",
+  templateUrl: "./get-balance.component.html",
+  styleUrl: "./get-balance.component.scss",
 })
-export class ViewBalanceComponent implements OnInit {
-  showBalance: boolean = true;
+export class GetBalanceComponent implements OnInit {
   buttonIcon: string = "pi pi-eye toggle-button";
   data!: any;
 
@@ -19,15 +18,7 @@ export class ViewBalanceComponent implements OnInit {
 
   ngOnInit() {
     this.service.getBalance().subscribe((response) => {
-      console.log(response);
       this.data = response;
     });
-  }
-
-  toggleBalance() {
-    this.showBalance = !this.showBalance;
-    this.buttonIcon = this.showBalance
-      ? "pi pi-eye-slash toggle-button"
-      : "pi pi-eye toggle-button";
   }
 }
