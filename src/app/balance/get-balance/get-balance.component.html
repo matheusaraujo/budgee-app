@@ -1,0 +1,8 @@
+<p-card header="Balance" class="balance-card">
+    <div class="balance-container">
+        <div class="balance">
+            <strong>Balance:</strong> {{ data?.balance | currency:'EUR' }}
+            <span class="date">({{ data?.referenceDate | date }})</span>
+        </div>
+    </div>
+</p-card>

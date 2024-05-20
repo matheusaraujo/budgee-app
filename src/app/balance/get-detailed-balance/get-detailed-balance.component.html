@@ -1,0 +1,20 @@
+<div class="balance-container">
+    <div *ngIf="data?.previousBalance !== undefined" class="balance-item">
+        <strong>Previous balance:</strong>
+        <span class="date">({{ data?.initialReferenceDate | date }})</span>
+        {{ data?.previousBalance | currency:'EUR'}}
+    </div>
+    <div *ngIf="data?.income !== undefined" class="balance-item">
+        <strong>Incomes:</strong> {{ data?.income | currency:'EUR'}}
+    </div>
+    <div *ngIf="data?.expense !== undefined" class="balance-item">
+        <strong>Expenses:</strong> {{ data?.expense | currency:'EUR'}}
+    </div>
+    <div *ngIf="data?.savings !== undefined" class="balance-item">
+        <strong>Savings:</strong> {{ data?.savings | currency:'EUR'}}
+    </div>
+    <div *ngIf="data?.balanceInPeriod !== undefined" class="balance-item">
+        <strong>Balance in period:</strong> {{ data?.balanceInPeriod |
+        currency:'EUR'}}
+    </div>
+</div>

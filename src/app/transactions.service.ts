@@ -6,6 +6,8 @@ import { Injectable } from "@angular/core";
 })
 export class TransactionsService {
   baseUrl: string = "http://localhost:3000";
+  private year?: string;
+  private month?: string;
 
   constructor(private http: HttpClient) {}
 
@@ -27,5 +29,29 @@ export class TransactionsService {
 
   getTransactionsByDate() {
     return this.http.get(`${this.baseUrl}/transactions/by-date`);
+  }
+
+  getBalance() {
+    return this.http.get(
+      `${this.baseUrl}/transactions/balance${this.makeParams()}`,
+    );
+  }
+
+  getDetailedBalance() {
+    return this.http.get(
+      `${this.baseUrl}/transactions/detailed-balance${this.makeParams()}`,
+    );
+  }
+
+  private makeParams(): string {
+    if (this.year === undefined && this.month === undefined) return "";
+    else if (this.month === undefined) return `?year=${this.year}`;
+    else return `?year=${this.year}&month=${this.month}`;
+  }
+
+  setYearMonth(y?: string, m?: string) {
+    console.log("setYearMonth", y, m);
+    this.year = y;
+    this.month = m;
   }
 }

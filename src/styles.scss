@@ -1,3 +1,5 @@
+@import "primeicons/primeicons.css";
+
 html {
     font-size: 12px;
 }
@@ -16,5 +18,9 @@ body {
     background: var(--surface-card);
     padding: 2rem;
     border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.p-card {
     margin-bottom: 1rem;
 }

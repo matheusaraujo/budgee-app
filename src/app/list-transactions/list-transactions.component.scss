@@ -6,3 +6,15 @@ tr > td {
 :host ::ng-deep .p-paginator .p-paginator-last {
     display: none;
 }
+
+.p-income-amount {
+    color: var(--green-500);
+    white-space: nowrap;
+    text-align: right;
+}
+
+.p-expense-amount {
+    color: var(--red-500);
+    white-space: nowrap;
+    text-align: right;
+}
